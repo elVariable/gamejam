@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://clbtukas48r8x"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_0n7wh"]
+[ext_resource type="PackedScene" uid="uid://culh4svls8ec1" path="res://scenes/prefabs/player.tscn" id="2_mcm3w"]
+[ext_resource type="PackedScene" uid="uid://tn60djfck7wo" path="res://scenes/prefabs/enemy.tscn" id="3_d6ym8"]
+[ext_resource type="PackedScene" uid="uid://dll22mutbq5yo" path="res://scenes/ui.tscn" id="4_tjnvw"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_0n7wh")
+
+[node name="Player" parent="." instance=ExtResource("2_mcm3w")]
+unique_name_in_owner = true
+position = Vector2(556, 317)
+
+[node name="Enemy" parent="." instance=ExtResource("3_d6ym8")]
+position = Vector2(176, 165)
+
+[node name="UI" parent="." instance=ExtResource("4_tjnvw")]
