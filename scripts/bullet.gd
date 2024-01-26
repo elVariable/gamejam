@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export
-var speed = 70
+var speed = 700
 @export
 var direction = Vector2(1, 0)
 
