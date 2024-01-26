@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://dll22mutbq5yo"]
+
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_jcq0l"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jcq0l")
+
+[node name="Score" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 856.0
+offset_top = 40.0
+offset_right = 898.0
+offset_bottom = 63.0
+text = "score
+"
+horizontal_alignment = 1
+
+[node name="Time" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeLabel" type="Label" parent="Time"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 856.0
+offset_top = 16.0
+offset_right = 896.0
+offset_bottom = 39.0
+text = "time"
+horizontal_alignment = 1

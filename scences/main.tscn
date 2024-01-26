@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_0jcfy"]
 [ext_resource type="PackedScene" uid="uid://culh4svls8ec1" path="res://scences/player.tscn" id="1_v82rg"]
-[ext_resource type="PackedScene" uid="uid://pq07bfjkoogy" path="res://scences/enemy.tscn" id="2_wjijj"]
+[ext_resource type="PackedScene" uid="uid://tn60djfck7wo" path="res://scences/enemy.tscn" id="2_wjijj"]
+[ext_resource type="PackedScene" uid="uid://dll22mutbq5yo" path="res://scences/ui.tscn" id="3_gwwu0"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_0jcfy")
@@ -13,3 +14,5 @@ position = Vector2(556, 317)
 
 [node name="Enemy" parent="." instance=ExtResource("2_wjijj")]
 position = Vector2(176, 165)
+
+[node name="UI" parent="." instance=ExtResource("3_gwwu0")]
