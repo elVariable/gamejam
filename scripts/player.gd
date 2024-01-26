@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
     movement()
     fire()
-    check_exit()
+    #check_exit()
 
 func movement():
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
@@ -39,3 +39,9 @@ func fire():
 func check_exit():
     if Input.is_action_just_pressed("Exit"):
         get_tree().quit()
+
+func _on_collision_body_entered(_body):
+    print("_on_collision_body_entered")
+    if _body.is_in_group("Enemies"):
+        GameManager.add_score(-10)
+        print("Enemy hit")
