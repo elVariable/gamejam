@@ -1,19 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://clbtukas48r8x"]
 
 [ext_resource type="PackedScene" uid="uid://culh4svls8ec1" path="res://scences/player.tscn" id="1_v82rg"]
-[ext_resource type="Texture2D" uid="uid://p22jssbmru7k" path="res://icon.svg" id="2_508mw"]
+[ext_resource type="PackedScene" uid="uid://pq07bfjkoogy" path="res://scences/enemy.tscn" id="2_wjijj"]
 
 [node name="level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_v82rg")]
+unique_name_in_owner = true
 position = Vector2(556, 317)
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(269.5, 287)
-scale = Vector2(0.554688, 0.578125)
-texture = ExtResource("2_508mw")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(810, 292.5)
-scale = Vector2(0.59375, 0.601562)
-texture = ExtResource("2_508mw")
+[node name="Enemy" parent="." instance=ExtResource("2_wjijj")]
+position = Vector2(176, 165)
