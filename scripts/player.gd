@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 var VELOCITY = 700
-var RES = get_viewport_rect().size
+var RES = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    RES = get_viewport_rect().size
     position = RES * 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,8 +16,8 @@ func movement():
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
     velocity = move_dir * VELOCITY
 
+    position = position.clamp(Vector2.ZERO, RES)
     move_and_slide()
-    #position = position.clamp(Vector2.ZERO, RES)
 
 func fire():
     if Input.is_action_just_pressed("Fire0"):
