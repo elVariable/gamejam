@@ -9,14 +9,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    movement()
+    movement(delta)
 
-func movement():
-    #var hor_inputAxis = Input.get_axis("Left", "Right")
-    #var vert_inputAxis = Input.get_axis("Left", "Right")
-    
+func movement(delta):
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
-    velocity = move_dir * VELOCITY
+    velocity = move_dir * VELOCITY * delta
 
-    print(velocity)
+    print(position)
     move_and_slide()
