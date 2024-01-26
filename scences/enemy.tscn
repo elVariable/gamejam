@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://pq07bfjkoogy"]
+[gd_scene load_steps=4 format=3 uid="uid://tn60djfck7wo"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_trtck"]
 [ext_resource type="Texture2D" uid="uid://p22jssbmru7k" path="res://icon.svg" id="2_7qbv1"]
@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27qgf"]
 size = Vector2(108, 30)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_trtck")
 
 [node name="Icon" type="Sprite2D" parent="."]
