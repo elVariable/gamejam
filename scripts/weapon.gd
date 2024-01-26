@@ -2,7 +2,7 @@ extends Sprite2D
 
 var bullet_scene = load("scenes/prefabs/bullet.tscn")
 
-var base_spawn_time = 1
+var base_spawn_time = .1
 var base_spawn_rate = 1
 
 var cnt_spawn_time = base_spawn_time
@@ -18,20 +18,25 @@ func _process(delta):
         cnt_spawn_time -= delta
     else:
         for i in range(base_spawn_rate):
-            var bullet_instance = bullet_scene.instantiate()
-            add_child(bullet_instance)
-            bullet_instance.position = get_legit_spawn()
-            bullet_instance.direction = get_normalized_direction()
+            var direction = get_normalized_direction()
+            if direction:
+                var bullet_instance = bullet_scene.instantiate()
+                get_tree().root.add_child(bullet_instance)
+                bullet_instance.position = get_legit_spawn()
+                bullet_instance.direction = get_normalized_direction()
         cnt_spawn_time = base_spawn_time
 
 func get_legit_spawn():
-    return position
+    return global_position
 
 func get_normalized_direction():
     var enemy = get_closest_enemy_or_null()
 
-    var direction = (position - enemy.position).normalized()
-    return direction
+    if enemy:
+        var direction = (enemy.global_position - global_position).normalized()
+        return direction
+
+    return null
 
 func get_closest_enemy_or_null():
     var enemies = get_tree().get_nodes_in_group("Enemies")
@@ -45,5 +50,8 @@ func get_closest_enemy_or_null():
             var distance_to_closest_enemy = global_position.distance_squared_to(closest_enemy.global_position)
             if (distance_to_this_enemy < distance_to_closest_enemy):
                 closest_enemy = e
- 
+
+    if closest_enemy:
+        closest_enemy.modulate = Color(255, 0, 0)
+
     return closest_enemy

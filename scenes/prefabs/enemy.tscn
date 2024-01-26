@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://tn60djfck7wo"]
+[gd_scene load_steps=5 format=3 uid="uid://tn60djfck7wo"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_trtck"]
 [ext_resource type="Texture2D" uid="uid://p22jssbmru7k" path="res://icon.svg" id="2_7qbv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27qgf"]
 size = Vector2(108, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe55r"]
+size = Vector2(112.027, 35.6138)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
@@ -17,3 +20,16 @@ texture = ExtResource("2_7qbv1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_27qgf")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 0.463648
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.376336, -1.52712)
+rotation = -0.452129
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qe55r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
