@@ -1,6 +1,6 @@
 extends Node2D
 
-var enemy_scene = load("scences/enemy.tscn")
+var enemy_scene = load("scenes/prefabs/enemy.tscn")
 var enemy_spawn_timer = 2 # seconds
 var enemy_spawn_amount = 1
 

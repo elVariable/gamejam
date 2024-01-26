@@ -17,6 +17,6 @@ func _process(delta):
     
 
     if move_and_collide(motion):
-        get_tree().change_scene_to_file("res://scences/game_over.tscn")
+        get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
 
         
