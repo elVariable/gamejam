@@ -13,6 +13,7 @@ func _ready():
 func _process(delta):
     movement()
     fire()
+    check_exit()
 
 func movement():
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
@@ -37,3 +38,7 @@ func fire():
     elif Input.is_action_just_released("Fire0") or Input.is_action_just_released("Fire1") or Input.is_action_just_released("Fire2") or Input.is_action_just_released("Fire3"):
         modulate = Color(255, 255, 255)
 
+
+func check_exit():
+    if Input.is_action_just_pressed("Exit"):
+        get_tree().quit()
