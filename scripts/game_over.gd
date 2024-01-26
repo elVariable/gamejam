@@ -13,5 +13,5 @@ func _process(delta):
 
 func _on_button_pressed():
     # reload main scene and restart
-    get_tree().change_scene_to_file("res://scences/main.tscn")
+    get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
     
