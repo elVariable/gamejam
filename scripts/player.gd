@@ -16,8 +16,8 @@ func movement():
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
     velocity = move_dir * speed
 
+    position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
     move_and_slide()
-    #position = position.clamp(Vector2.ZERO, RES)
 
 func fire():
     if Input.is_action_just_pressed("Fire0"):
