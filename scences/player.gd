@@ -1,5 +1,6 @@
-extends Node2D
+extends CharacterBody2D
 
+var VELOCITY = 700
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,9 +9,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    
+    movement()
 
 func movement():
-    var inputAxis = Input.get_axis("Left", "Right")
-    velocity = Vector2(inputAxis * move_speed, velocity.y)
+    #var hor_inputAxis = Input.get_axis("Left", "Right")
+    #var vert_inputAxis = Input.get_axis("Left", "Right")
+    
+    var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
+    velocity = move_dir * VELOCITY
+
+    print(velocity)
     move_and_slide()
