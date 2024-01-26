@@ -41,7 +41,5 @@ func check_exit():
         get_tree().quit()
 
 func _on_collision_body_entered(_body):
-    print("_on_collision_body_entered")
     if _body.is_in_group("Enemies"):
         GameManager.add_score(-10)
-        print("Enemy hit")
