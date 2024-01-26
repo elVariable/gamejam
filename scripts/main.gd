@@ -1,26 +1,41 @@
 extends Node2D
 
 var enemy_scene = load("scenes/prefabs/enemy.tscn")
-var enemy_spawn_timer = 2 # seconds
-var enemy_spawn_amount = 1
+
+var enemy_spawn_timer = 3 # seconds
+var last_enemy_spawn_time = 0
+var enemy_spawn_amount = 2
+var current_difficulty = 1
+var last_enemy_dificulty_increase_timer = 0
+var next_enemy_dificulty_increase = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):    
+func _process(delta):
+    update_enemy_difficulty(delta)
     enemy_spawner(delta) 
 
+func update_enemy_difficulty(delta):
+    if last_enemy_dificulty_increase_timer > next_enemy_dificulty_increase:
+        current_difficulty += 1
+        enemy_spawn_amount += 2 * current_difficulty
+        last_enemy_dificulty_increase_timer = 0
+        next_enemy_dificulty_increase = next_enemy_dificulty_increase * 1.3
+    else:
+        last_enemy_dificulty_increase_timer += delta
+
 func enemy_spawner(delta):
-    if enemy_spawn_timer > 0:
-        enemy_spawn_timer -= delta
+    if last_enemy_spawn_time < enemy_spawn_timer:
+        last_enemy_spawn_time += delta
     else:
         for i in range(enemy_spawn_amount):
             var enemy_instance = enemy_scene.instantiate()
             add_child(enemy_instance)
             enemy_instance.position = get_legit_spawn()
-        enemy_spawn_timer = 5
+        last_enemy_spawn_time = 0
 
 func get_legit_spawn():
     var res = get_viewport_rect()
