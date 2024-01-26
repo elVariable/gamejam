@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://culh4svls8ec1"]
+[gd_scene load_steps=5 format=3 uid="uid://culh4svls8ec1"]
 
 [ext_resource type="Texture2D" uid="uid://p22jssbmru7k" path="res://icon.svg" id="1_25fj7"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_plbun"]
+[ext_resource type="PackedScene" uid="uid://waymfxg1fs2a" path="res://scenes/prefabs/weapon.tscn" id="3_occfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fx6f5"]
 size = Vector2(62, 62)
@@ -26,5 +27,8 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_fx6f5")
+
+[node name="Weapon" parent="." instance=ExtResource("3_occfi")]
+position = Vector2(38, -33)
 
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
