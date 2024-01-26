@@ -89,4 +89,7 @@ libraries = {
 "": SubResource("AnimationLibrary_wobi3")
 }
 
+[node name="Weapon" parent="." instance=ExtResource("3_occfi")]
+position = Vector2(38, -33)
+
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

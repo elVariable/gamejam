@@ -16,3 +16,9 @@ func _process(delta):
     var motion = direction * speed * delta
     
     move_and_collide(motion)
+
+
+func _on_area_2d_body_entered(_body):
+    print("Enemy: _on_collision_body_entered")
+    if _body.is_in_group("Bullets"):
+        queue_free()
