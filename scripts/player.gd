@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export
 var speed = 700
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     position = get_viewport_rect().size * 0.5
@@ -34,3 +36,4 @@ func fire():
         modulate = Color(120, 120, 0)
     elif Input.is_action_just_released("Fire0") or Input.is_action_just_released("Fire1") or Input.is_action_just_released("Fire2") or Input.is_action_just_released("Fire3"):
         modulate = Color(255, 255, 255)
+

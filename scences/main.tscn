@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://clbtukas48r8x"]
+[gd_scene load_steps=4 format=3 uid="uid://clbtukas48r8x"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_0jcfy"]
 [ext_resource type="PackedScene" uid="uid://culh4svls8ec1" path="res://scences/player.tscn" id="1_v82rg"]
 [ext_resource type="PackedScene" uid="uid://pq07bfjkoogy" path="res://scences/enemy.tscn" id="2_wjijj"]
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_0jcfy")
 
 [node name="Player" parent="." instance=ExtResource("1_v82rg")]
 unique_name_in_owner = true
