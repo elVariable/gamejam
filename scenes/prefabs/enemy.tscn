@@ -1,100 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://tn60djfck7wo"]
+[gd_scene load_steps=5 format=3 uid="uid://tn60djfck7wo"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_trtck"]
 [ext_resource type="Texture2D" uid="uid://by0bxbmdnt8fk" path="res://Assets/Enemies/enemy1.png" id="2_p45ub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27qgf"]
-size = Vector2(108, 30)
+size = Vector2(61, 100)
 
-[sub_resource type="Animation" id="Animation_b7yfj"]
-resource_name = "Idle"
-
-[sub_resource type="Animation" id="Animation_i3ymm"]
-resource_name = "Stage1"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_8j5cu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_csjf0"]
-resource_name = "Stage2"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_jmhla"]
-resource_name = "Stage3"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_jwn4x"]
-resource_name = "Stage4"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_24ns0"]
-_data = {
-"Idle": SubResource("Animation_b7yfj"),
-"RESET": SubResource("Animation_8j5cu"),
-"Stage1": SubResource("Animation_i3ymm"),
-"Stage2": SubResource("Animation_csjf0"),
-"Stage3": SubResource("Animation_jmhla"),
-"Stage4": SubResource("Animation_jwn4x")
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe55r"]
+size = Vector2(64.0188, 99.6017)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
@@ -102,17 +15,24 @@ script = ExtResource("1_trtck")
 
 [node name="Icon" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0, 0.647059, 1)
-position = Vector2(-10, -8)
-scale = Vector2(0.3, 0.3)
+position = Vector2(9.99999, -3.00001)
+scale = Vector2(0.515625, 0.515625)
 texture = ExtResource("2_p45ub")
 hframes = 4
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 10)
 shape = SubResource("RectangleShape2D_27qgf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_24ns0")
-}
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 0.463648
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12.5323, 4.91431)
+rotation = -0.452129
+shape = SubResource("RectangleShape2D_qe55r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
