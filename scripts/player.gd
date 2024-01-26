@@ -38,5 +38,6 @@ func fire():
         modulate = Color(255, 255, 255)
 
 func _on_collision_body_entered(_body):
+    print("_on_collision_body_entered")
     if _body.is_in_group("Enemies"):
         GameManager.add_score(-10)

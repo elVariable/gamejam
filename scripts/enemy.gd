@@ -15,8 +15,4 @@ func _process(delta):
     var direction = (target_pos - position).normalized()
     var motion = direction * speed * delta
     
-
-    if move_and_collide(motion):
-        get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
-
-        
+    move_and_collide(motion)
