@@ -1,64 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://clbtukas48r8x"]
+[gd_scene load_steps=5 format=3 uid="uid://clbtukas48r8x"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_0n7wh"]
 [ext_resource type="PackedScene" uid="uid://culh4svls8ec1" path="res://scenes/prefabs/player.tscn" id="2_mcm3w"]
-[ext_resource type="Texture2D" uid="uid://b2q6626d76iv1" path="res://Assets/Player/PlayerSprite.png" id="3_0iaw2"]
 [ext_resource type="PackedScene" uid="uid://tn60djfck7wo" path="res://scenes/prefabs/enemy.tscn" id="3_d6ym8"]
 [ext_resource type="PackedScene" uid="uid://dll22mutbq5yo" path="res://scenes/ui.tscn" id="4_tjnvw"]
-
-[sub_resource type="Animation" id="Animation_vgomg"]
-resource_name = "Idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_4410m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ldfip"]
-resource_name = "shot"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [5, 6, 7, 6, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wi5ne"]
-_data = {
-"Idle": SubResource("Animation_vgomg"),
-"RESET": SubResource("Animation_4410m"),
-"shot": SubResource("Animation_ldfip")
-}
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_0n7wh")
@@ -66,16 +11,6 @@ script = ExtResource("1_0n7wh")
 [node name="Player" parent="." instance=ExtResource("2_mcm3w")]
 unique_name_in_owner = true
 position = Vector2(556, 317)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_0iaw2")
-hframes = 4
-vframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-libraries = {
-"": SubResource("AnimationLibrary_wi5ne")
-}
 
 [node name="Enemy" parent="." instance=ExtResource("3_d6ym8")]
 position = Vector2(176, 165)
