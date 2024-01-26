@@ -13,7 +13,7 @@ func _process(delta):
 
 func movement(delta):
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
-    velocity = move_dir * VELOCITY * delta
+    velocity = move_dir * VELOCITY
 
     print(position)
     move_and_slide()
