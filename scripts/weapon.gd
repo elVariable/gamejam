@@ -7,6 +7,10 @@ var base_spawn_rate = 1
 
 var cnt_spawn_time = base_spawn_time
 
+var bullet_speed = 1700
+var bullet_dmg = 50
+var bullet_pircing = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass # Replace with function body.
@@ -24,6 +28,9 @@ func _process(delta):
                 get_tree().root.add_child(bullet_instance)
                 bullet_instance.position = get_legit_spawn()
                 bullet_instance.direction = get_normalized_direction()
+                bullet_instance.speed = bullet_speed
+                bullet_instance.dmg = bullet_dmg
+                bullet_instance.pircing = bullet_pircing
         cnt_spawn_time = base_spawn_time
 
 func get_legit_spawn():
@@ -50,8 +57,5 @@ func get_closest_enemy_or_null():
             var distance_to_closest_enemy = global_position.distance_squared_to(closest_enemy.global_position)
             if (distance_to_this_enemy < distance_to_closest_enemy):
                 closest_enemy = e
-
-    #if closest_enemy:
-        #closest_enemy.modulate = Color(120, 0, 0)
 
     return closest_enemy
