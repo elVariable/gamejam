@@ -3,4 +3,15 @@
 [ext_resource type="Script" path="res://scripts/intermediate.gd" id="1_pmi4j"]
 
 [node name="Intermediate" type="Node2D"]
+process_mode = 2
+visible = false
 script = ExtResource("1_pmi4j")
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 298.0
+offset_top = 117.0
+offset_right = 397.0
+offset_bottom = 176.0
+text = "Continue"
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
