@@ -79,3 +79,4 @@ func get_scaled_speed():
 
 func get_scaled_pircing():
     return bullet_pircing
+
