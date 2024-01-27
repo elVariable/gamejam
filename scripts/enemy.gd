@@ -29,14 +29,23 @@ func _process(delta):
     if position.distance_to(target_pos) > 5:
         move_and_slide()
 
+func handle_bullet_hit(bullet: Bullet):
+    health -= bullet.dmg
+    bullet.pircing -= 1
+    if bullet.pircing <= 0:
+        despawn_bullet(bullet)
+    if health <= 0:
+        despawn_enemy()
+
+func despawn_enemy():
+    GameManager.add_score(score)
+    queue_free()
+
+func despawn_bullet(bullet: Bullet):
+    bullet.queue_free()
+
 func _on_area_2d_body_entered(_body):
     print("Enemy: _on_collision_body_entered")
     if _body.is_in_group("Bullets"):
-        GameManager.add_score(score)
-        health -= _body.dmg
-        _body.pircing -= 1
-        if _body.pircing <= 0:
-            _body.queue_free()
-        if health <= 0:
-            queue_free()
+        handle_bullet_hit(_body)
 
