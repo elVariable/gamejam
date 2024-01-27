@@ -19,3 +19,9 @@ func _process(delta):
     
     if position.distance_to(target_pos) > 5:
         move_and_slide()
+
+func _on_area_2d_body_entered(_body):
+    print("Enemy: _on_collision_body_entered")
+    if _body.is_in_group("Bullets"):
+        queue_free()
+
