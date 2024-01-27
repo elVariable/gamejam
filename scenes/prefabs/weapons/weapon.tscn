@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c76mb5ap1urfm" path="res://Assets/Bullets/bullet_hi.png" id="5_ci752"]
 [ext_resource type="Texture2D" uid="uid://c3gkk1rdxdmss" path="res://Assets/Bullets/bullet_ho.png" id="6_5w28h"]
 
-[node name="Weapon" type="Node2D"]
+[node name="Weapon2" type="Node2D"]
 script = ExtResource("1_ell4r")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -74,6 +74,7 @@ scale = Vector2(0.0805664, 0.0805664)
 texture = ExtResource("5_ci752")
 hframes = 4
 vframes = 4
+frame = 8
 
 [node name="ho_box" type="ColorRect" parent="WeaponView"]
 modulate = Color(1, 1, 1, 0.580392)
