@@ -11,3 +11,7 @@ visible = false
 position = Vector2(3, 3)
 scale = Vector2(0.367188, 0.304688)
 texture = ExtResource("2_q5apk")
+
+[node name="BulletTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
