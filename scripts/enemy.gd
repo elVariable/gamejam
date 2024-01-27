@@ -13,11 +13,15 @@ func _ready():
 func _process(delta):
     var target_pos = get_node("/root/level/Player").position
     var direction = (target_pos - position).normalized()
-    var motion = direction * speed * delta
     
-    move_and_collide(motion)
+    velocity = direction * speed
+    look_at(target_pos)
+    
+    if position.distance_to(target_pos) > 5:
+        move_and_slide()
 
 func _on_area_2d_body_entered(_body):
     print("Enemy: _on_collision_body_entered")
     if _body.is_in_group("Bullets"):
         queue_free()
+

@@ -11,6 +11,7 @@ size = Vector2(64.0188, 99.6017)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_trtck")
 
 [node name="Icon" type="Sprite2D" parent="."]
