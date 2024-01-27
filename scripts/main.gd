@@ -50,20 +50,8 @@ func enemy_spawner(delta):
             for i in range(enemy_spawn_amount):
                 var enemy_instance = e.create_instance()
                 add_child(enemy_instance)
-                enemy_instance.position = get_legit_spawn()
+                enemy_instance.position = e.get_legit_spawn(get_window().size, get_node("%Player").position)
             last_enemy_spawn_time = 0
-
-func get_legit_spawn():
-    var res = get_viewport_rect()
-    var new_pos = Vector2(randi() % int(res.end.x), randi() % int(res.end.y))
-    var min_dist_to_player = res.end.x / 2.5
-        
-    while true:
-        # has potential to freeze the game - lol
-        if get_node("%Player").position.distance_to(new_pos) > min_dist_to_player:
-            return new_pos
-        else:
-            new_pos = Vector2(randi() % int(res.end.x), randi() % int(res.end.y))
 
 func end_wave():
     get_tree().paused = true
