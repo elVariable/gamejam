@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 var bullet_scene = load("scenes/prefabs/bullet.tscn")
 
@@ -52,6 +52,6 @@ func get_closest_enemy_or_null():
                 closest_enemy = e
 
     if closest_enemy:
-        closest_enemy.modulate = Color(255, 0, 0)
+        closest_enemy.modulate = Color(120, 0, 0)
 
     return closest_enemy

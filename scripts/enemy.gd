@@ -17,7 +17,6 @@ func _process(delta):
     
     move_and_collide(motion)
 
-
 func _on_area_2d_body_entered(_body):
     print("Enemy: _on_collision_body_entered")
     if _body.is_in_group("Bullets"):
