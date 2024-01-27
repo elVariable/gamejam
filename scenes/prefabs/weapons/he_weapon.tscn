@@ -5,3 +5,6 @@
 
 [node name="Weapon" instance=ExtResource("1_2lehq")]
 script = ExtResource("2_4yipd")
+
+[node name="Icon" parent="." index="0"]
+scale = Vector2(10, 8.309)
