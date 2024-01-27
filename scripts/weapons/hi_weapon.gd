@@ -8,6 +8,5 @@ func _init():
     bullet_pircing = 1
     base_spawn_time = 0.15
     base_spawn_rate = 1
-    bullet_scale = Vector2(0.5, 0.5)
 
     bullet_scene = load("res://scenes/prefabs/bullets/hi_bullet.tscn")
