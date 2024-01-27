@@ -6,6 +6,10 @@ var score : int = 0
 var death_counter : int = 0
 var is_game_over : bool = false
 
+var default_bullet_speed : int = 100
+var default_bullet_dmg : int = 20
+var default_bullet_direction: Vector2 = Vector2(0, 0)
+
 func _process(delta):
     check_exit()
 

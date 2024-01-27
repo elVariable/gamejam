@@ -7,6 +7,9 @@ var base_spawn_rate = 1
 
 var cnt_spawn_time = base_spawn_time
 
+var bullet_speed = 1700
+var bullet_dmg = 50
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass # Replace with function body.
@@ -24,6 +27,8 @@ func _process(delta):
                 get_tree().root.add_child(bullet_instance)
                 bullet_instance.position = get_legit_spawn()
                 bullet_instance.direction = get_normalized_direction()
+                bullet_instance.speed = bullet_speed
+                bullet_instance.dmg = bullet_dmg
         cnt_spawn_time = base_spawn_time
 
 func get_legit_spawn():
