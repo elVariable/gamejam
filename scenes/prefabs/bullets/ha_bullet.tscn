@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dplopjcahplft"]
+
+[ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_xtfa0"]
+[ext_resource type="Script" path="res://scripts/bullets/ha_bullet.gd" id="2_dju7o"]
+
+[node name="Bullet" instance=ExtResource("1_xtfa0")]
+script = ExtResource("2_dju7o")

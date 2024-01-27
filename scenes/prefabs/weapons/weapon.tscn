@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://waymfxg1fs2a"]
 
-[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_j80xh"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon.gd" id="1_ell4r"]
 [ext_resource type="Texture2D" uid="uid://p22jssbmru7k" path="res://icon.svg" id="2_q5apk"]
 
 [node name="Weapon" type="Node2D"]
-script = ExtResource("1_j80xh")
+script = ExtResource("1_ell4r")
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false

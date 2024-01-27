@@ -9,8 +9,7 @@ var pircing = GameManager.default_bullet_pircing
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
-
+    $AnimationPlayer.play("shot")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
