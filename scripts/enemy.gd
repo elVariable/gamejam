@@ -4,6 +4,8 @@ var speed = 500 # pixel per second
 var health = 100
 var score = 20
 
+var dmg = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     #speed = get_node("%Player").speed * 0.7
