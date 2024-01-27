@@ -11,9 +11,9 @@ var bullet_speed = 1700
 var bullet_dmg = 50
 var bullet_pircing = 1
 
-var bullet_scale = Vector2(1, 1)
-
 var bullet_timer : Timer = null
+
+var weapon_lvl : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,10 +59,10 @@ func fire_bullets():
 
             bullet_instance.position = get_legit_spawn()
             bullet_instance.direction = get_normalized_direction()
-            bullet_instance.speed = bullet_speed
-            bullet_instance.dmg = bullet_dmg
-            bullet_instance.pircing = bullet_pircing
-            bullet_instance.scale = bullet_scale
+
+            bullet_instance.speed = get_scaled_speed()
+            bullet_instance.dmg = get_scaled_dmg()
+            bullet_instance.pircing = get_scaled_pircing()
 
             get_tree().root.add_child(bullet_instance)
 
@@ -70,3 +70,12 @@ func _on_bullet_timer_timeout():
     fire_bullets()
 
     bullet_timer.start(base_spawn_time)
+
+func get_scaled_dmg():
+    return weapon_lvl * bullet_dmg
+
+func get_scaled_speed():
+    return (1 + weapon_lvl / 10) * bullet_speed
+
+func get_scaled_pircing():
+    return bullet_pircing

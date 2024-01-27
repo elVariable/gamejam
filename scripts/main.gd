@@ -71,8 +71,8 @@ func _on_spawn_timer_timeout():
         var enemy_spawn_amount = e.get_enemy_spawn_amount(current_difficulty)
         for i in range(enemy_spawn_amount):
             var enemy_instance = e.create_instance()
-            add_child(enemy_instance)
             enemy_instance.position = e.get_legit_spawn(get_window().size, get_node("%Player").position)
+            add_child(enemy_instance)
 
     spawn_timer.start(enemy_spawn_timer)
 

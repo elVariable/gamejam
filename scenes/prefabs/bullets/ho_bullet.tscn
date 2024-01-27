@@ -1,11 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs06jmwg6vw34"]
+[gd_scene load_steps=10 format=3 uid="uid://cs06jmwg6vw34"]
 
 [ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_8crue"]
+[ext_resource type="Texture2D" uid="uid://c3gkk1rdxdmss" path="res://Assets/Bullets/bullet_ho.png" id="3_7wvxc"]
 [ext_resource type="Script" path="res://scripts/bullets/ho_bullet.gd" id="3_26jn5"]
-[ext_resource type="AudioStream" uid="uid://b0eukdwf1ixet" path="res://Assets/Sound/ho3.wav" id="3_b7te0"]
+[ext_resource type="AudioStream" uid="uid://drpoowhu2wfht" path="res://Assets/Sound/ho3.wav" id="3_b7te0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3rkj"]
+radius = 7.56637
+
+[sub_resource type="Animation" id="Animation_82fri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0kttq"]
+resource_name = "flying"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 4, 3, 2, 1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ontox"]
+resource_name = "shot"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 0, 5, 6, 7, 8, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58gpt"]
+_data = {
+"RESET": SubResource("Animation_82fri"),
+"flying": SubResource("Animation_0kttq"),
+"shot": SubResource("Animation_ontox")
+}
 
 [node name="Bullet" instance=ExtResource("1_8crue")]
+scale = Vector2(3.1086, 3.1086)
 script = ExtResource("3_26jn5")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, -1)
+shape = SubResource("CircleShape2D_l3rkj")
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("3_7wvxc")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_58gpt")
+}
 
 [node name="DefaultAudio" parent="." index="3"]
 stream = ExtResource("3_b7te0")
