@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_0n7wh"]
 [ext_resource type="PackedScene" uid="uid://culh4svls8ec1" path="res://scenes/prefabs/player.tscn" id="2_mcm3w"]
 [ext_resource type="PackedScene" uid="uid://dll22mutbq5yo" path="res://scenes/ui.tscn" id="4_tjnvw"]
-[ext_resource type="PackedScene" uid="uid://c1juomx4hnul1" path="res://scenes/prefabs/chickpea.tscn" id="5_idjof"]
+[ext_resource type="PackedScene" uid="uid://v18uy7txo2xm" path="res://scenes/prefabs/chickpea.tscn" id="5_idjof"]
 [ext_resource type="Texture2D" uid="uid://d1lyejfyi14dn" path="res://Assets/Texture/ConcretTile.jpg" id="5_ukeum"]
 [ext_resource type="Script" path="res://scripts/chickpea_timer.gd" id="6_7r0ql"]
 
@@ -842,4 +842,7 @@ wait_time = 10.0
 autostart = true
 script = ExtResource("6_7r0ql")
 
+[node name="DifficutlyTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ChickpeaTimer" to="ChickpeaTimer" method="_on_timeout"]
+[connection signal="timeout" from="DifficutlyTimer" to="." method="_on_difficutly_timer_timeout"]

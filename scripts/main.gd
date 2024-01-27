@@ -19,27 +19,21 @@ var current_wave_duration = 0
 
 var intermediate_scene = load("res://scenes/levels/intermediate.tscn")
 
+var difficulty_timer : Timer = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     get_tree().root.add_child.call_deferred(intermediate_scene.instantiate())
-    pass
 
+    difficulty_timer = get_node("DifficutlyTimer")
+    difficulty_timer.start(next_enemy_dificulty_increase)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    update_enemy_difficulty(delta)
     enemy_spawner(delta)
 
     current_wave_duration += delta
     if current_wave_duration > wave_duration:
         end_wave()
-
-func update_enemy_difficulty(delta):
-    if last_enemy_dificulty_increase_timer > next_enemy_dificulty_increase:
-        current_difficulty += 1
-        last_enemy_dificulty_increase_timer = 0
-        next_enemy_dificulty_increase = next_enemy_dificulty_increase * 1.3
-    else:
-        last_enemy_dificulty_increase_timer += delta
 
 func enemy_spawner(delta):
     if last_enemy_spawn_time < enemy_spawn_timer:
@@ -74,3 +68,9 @@ func end_wave():
         bullet.queue_free()
     for item in get_tree().get_nodes_in_group("Items"):
         item.queue_free()
+
+
+func _on_difficutly_timer_timeout():
+    current_difficulty += 1
+    next_enemy_dificulty_increase = next_enemy_dificulty_increase * 1.3
+    difficulty_timer.start(next_enemy_dificulty_increase)
