@@ -10,7 +10,7 @@ var enemy_spawn_amount = 2
 var last_enemy_dificulty_increase_timer = 0
 var next_enemy_dificulty_increase = 5
 
-var wave_duration = 10 # seconds
+var wave_duration = 5 # seconds
 var current_wave_duration = 0
 
 var intermediate_scene = load("res://scenes/levels/intermediate.tscn")
@@ -62,9 +62,14 @@ func get_legit_spawn():
 
 func end_wave():
     get_tree().paused = true
+
+    GameManager.add_wave()
+
+    # Show intermediate window
     get_node("/root/Intermediate").show()
     hide()
 
+    # Prepare for next wave
     current_start_difficulty += 1
     current_wave_duration = 0
     current_difficulty = 3 * current_start_difficulty

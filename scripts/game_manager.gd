@@ -5,6 +5,7 @@ extends Node2D
 var score : int = 0
 var death_counter : int = 0
 var is_game_over : bool = false
+var wave : int = 1
 
 func _process(delta):
     check_exit()
@@ -19,7 +20,9 @@ func add_score(num = 1):
 
 func add_death():
     death_counter += 1
-    print(death_counter)
+
+func add_wave():
+    wave += 1
 
 ## Loads next level
 #func load_next_level(next_scene : PackedScene):
