@@ -40,6 +40,7 @@ func movement(delta, target_pos):
 func handle_bullet_hit(bullet: Bullet):
     health -= bullet.dmg
     bullet.pircing -= 1
+    bullet.play_hit_sound()
     if bullet.pircing <= 0:
         despawn_bullet(bullet)
     if health <= 0:
@@ -50,7 +51,7 @@ func despawn_enemy():
     queue_free()
 
 func despawn_bullet(bullet: Bullet):
-    bullet.queue_free()
+    bullet.cleanup()
 
 func _on_area_2d_body_entered(_body):
     if _body.is_in_group("Bullets"):
