@@ -11,7 +11,3 @@ func _init():
     bullet_scale = Vector2(7.3, 7.3)
 
     bullet_scene = load("res://scenes/prefabs/bullets/he_bullet.tscn")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass

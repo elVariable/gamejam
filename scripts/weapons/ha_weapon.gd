@@ -10,7 +10,3 @@ func _init():
     base_spawn_rate = 1
 
     bullet_scene = load("res://scenes/prefabs/bullets/ha_bullet.tscn")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass
