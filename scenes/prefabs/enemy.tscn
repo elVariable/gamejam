@@ -25,12 +25,6 @@ vframes = 4
 position = Vector2(8.5, 10)
 shape = SubResource("RectangleShape2D_27qgf")
 
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_24ns0")
-}
-
 [node name="Area2D" type="Area2D" parent="."]
 rotation = 0.463648
 collision_layer = 2
