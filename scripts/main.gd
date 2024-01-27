@@ -1,7 +1,11 @@
 extends Node2D
 
 
-var enemy_scene = load("scenes/prefabs/enemies/enemy.tscn")
+var enemies: Dictionary = {
+    "grumpy" : preload("res://scenes/prefabs/enemies/grumpy_the_cat.tscn"), 
+}
+var enemy_scene = enemies["grumpy"]
+
 var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
 var current_start_difficulty = 1
