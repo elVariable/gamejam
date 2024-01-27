@@ -16,7 +16,7 @@ var enemy_spawn_amount = 2
 var last_enemy_dificulty_increase_timer = 0
 var next_enemy_dificulty_increase = 5
 
-var wave_duration = 5 # seconds
+var wave_duration = 40 # seconds
 var current_wave_duration = 0
 
 var intermediate_scene = load("res://scenes/levels/intermediate.tscn")
