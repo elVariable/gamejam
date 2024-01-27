@@ -65,7 +65,7 @@ func fire():
         modulate = Color(120, 120, 0)
         switch_weapon("ho_weapon")
     elif Input.is_action_just_released("Fire0") or Input.is_action_just_released("Fire1") or Input.is_action_just_released("Fire2") or Input.is_action_just_released("Fire3"):
-        modulate = Color(255, 255, 255)
+        pass
 
 func switch_weapon(name):
     var new_weapon = weapons[name].instantiate()
