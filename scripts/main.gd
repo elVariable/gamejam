@@ -2,9 +2,11 @@ extends Node2D
 
 
 var enemies: Dictionary = {
-    "grumpy" : preload("res://scenes/prefabs/enemies/grumpy_the_cat.tscn"), 
+    "grumpy_cat" : preload("res://scenes/prefabs/enemies/grumpy_the_cat.tscn"),
+    "grumpy_old_man" : preload("res://scenes/prefabs/enemies/grumpy_old_man.tscn"),
+    "grumpy_house_plant" : preload("res://scenes/prefabs/enemies/grumpy_house_plant.tscn"),
 }
-var enemy_scene = enemies["grumpy"]
+var enemy_scene = enemies["grumpy_house_plant"]
 
 var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
