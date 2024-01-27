@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://csxoewps4qdj6"]
+
+[ext_resource type="Script" path="res://scripts/intermediate.gd" id="1_pmi4j"]
+
+[node name="Intermediate" type="Node2D"]
+process_mode = 2
+visible = false
+script = ExtResource("1_pmi4j")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1914.0
+offset_bottom = 1083.0
+
+[node name="Continue" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = 723.0
+offset_right = 73.0
+offset_bottom = -301.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Continue"
+icon_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -251.5
+offset_right = 231.0
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+
+[node name="Option1" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1339.0
+offset_top = 200.0
+offset_right = 1465.0
+offset_bottom = 290.0
+
+[node name="Option2" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1339.0
+offset_top = 330.0
+offset_right = 1465.0
+offset_bottom = 420.0
+
+[node name="Option3" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1339.0
+offset_top = 468.0
+offset_right = 1465.0
+offset_bottom = 558.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]

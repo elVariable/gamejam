@@ -1,22 +1,33 @@
 extends Node2D
 
-var enemy_scene = load("scenes/prefabs/enemy.tscn")
 
+var enemy_scene = load("scenes/prefabs/enemy.tscn")
 var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
-var enemy_spawn_amount = 2
+var current_start_difficulty = 1
 var current_difficulty = 1
+var enemy_spawn_amount = 2
 var last_enemy_dificulty_increase_timer = 0
 var next_enemy_dificulty_increase = 5
 
+var wave_duration = 5 # seconds
+var current_wave_duration = 0
+
+var intermediate_scene = load("res://scenes/levels/intermediate.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    get_tree().root.add_child.call_deferred(intermediate_scene.instantiate())
     pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
     update_enemy_difficulty(delta)
-    enemy_spawner(delta) 
+    enemy_spawner(delta)
+    
+    current_wave_duration += delta
+    if current_wave_duration > wave_duration:
+        end_wave()
 
 func update_enemy_difficulty(delta):
     if last_enemy_dificulty_increase_timer > next_enemy_dificulty_increase:
@@ -40,7 +51,7 @@ func enemy_spawner(delta):
 func get_legit_spawn():
     var res = get_viewport_rect()
     var new_pos = Vector2(randi() % int(res.end.x), randi() % int(res.end.y))
-    var min_dist_to_player = res.end.x / 2
+    var min_dist_to_player = res.end.x / 2.5
         
     while true:
         # has potential to freeze the game - lol
@@ -48,4 +59,23 @@ func get_legit_spawn():
             return new_pos
         else:
             new_pos = Vector2(randi() % int(res.end.x), randi() % int(res.end.y))
-        
+
+func end_wave():
+    get_tree().paused = true
+
+    GameManager.add_wave()
+
+    # Show intermediate window
+    get_node("/root/Intermediate").show()
+    hide()
+
+    # Prepare for next wave
+    current_start_difficulty += 1
+    current_wave_duration = 0
+    current_difficulty = 3 * current_start_difficulty
+    
+    # clear all enemies
+    for enemy in get_tree().get_nodes_in_group("Enemies"):
+        enemy.queue_free()
+    for bullet in get_tree().get_nodes_in_group("Bullets"):
+        bullet.queue_free()
