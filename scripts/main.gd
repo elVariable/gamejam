@@ -84,3 +84,5 @@ func end_wave():
         enemy.queue_free()
     for bullet in get_tree().get_nodes_in_group("Bullets"):
         bullet.queue_free()
+    for item in get_tree().get_nodes_in_group("Items"):
+        item.queue_free()
