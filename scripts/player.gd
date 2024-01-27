@@ -49,18 +49,18 @@ func movement():
 
 func fire():
     if Input.is_action_just_pressed("Fire0"):
-        print("Fire0")
+        #print("Fire0")
         modulate = Color(255, 0, 0)
         switch_weapon("ha_weapon")
     elif Input.is_action_just_pressed("Fire1"):
-        print("Fire1")
+        #print("Fire1")
         modulate = Color(0, 255, 0)
         switch_weapon("hi_weapon")
     elif Input.is_action_just_pressed("Fire2"):
-        print("Fire2")
+        #print("Fire2")
         modulate = Color(0, 0, 255)
     elif Input.is_action_just_pressed("Fire3"):
-        print("Fire3")
+        #print("Fire3")
         modulate = Color(120, 120, 0)
     elif Input.is_action_just_released("Fire0") or Input.is_action_just_released("Fire1") or Input.is_action_just_released("Fire2") or Input.is_action_just_released("Fire3"):
         modulate = Color(255, 255, 255)
