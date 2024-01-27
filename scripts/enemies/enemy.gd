@@ -37,6 +37,15 @@ func movement(delta, target_pos):
     if position.distance_to(target_pos) > 5: # fix shaky behaviour
         move_and_slide()
 
+func animate_color_blink(flash_color):
+    modulate = flash_color
+    await get_tree().create_timer(0.2).timeout
+    modulate = Color.WHITE
+    await get_tree().create_timer(0.1).timeout
+    modulate = flash_color
+    await get_tree().create_timer(0.2).timeout
+    modulate = Color.WHITE
+
 func handle_bullet_hit(bullet: Bullet):
     health -= bullet.dmg
     bullet.pircing -= 1
@@ -45,6 +54,8 @@ func handle_bullet_hit(bullet: Bullet):
         despawn_bullet(bullet)
     if health <= 0:
         despawn_enemy()
+    else:
+        animate_color_blink(Color.INDIAN_RED)
 
 func despawn_enemy():
     GameManager.add_score(score)
