@@ -3,7 +3,7 @@ extends Weapon
 class_name HeWeapon
 
 func _init():
-    bullet_speed = 1700
+    bullet_speed = 700
     bullet_dmg = 10
     bullet_pircing = 1
     base_spawn_time = 0.1
