@@ -42,7 +42,7 @@ _data = {
 "Walk": SubResource("Animation_x62mb")
 }
 
-[node name="Enemy" instance=ExtResource("1_2qt5c")]
+[node name="Enemy2" instance=ExtResource("1_2qt5c")]
 script = ExtResource("2_yt1aw")
 
 [node name="Icon" parent="." index="0"]

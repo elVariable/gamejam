@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://l071op42lnta"]
+[gd_scene load_steps=9 format=3 uid="uid://l071op42lnta"]
 
 [ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_ftwda"]
 [ext_resource type="Script" path="res://scripts/bullets/hi_bullet.gd" id="2_q7ygl"]
 [ext_resource type="Texture2D" uid="uid://c76mb5ap1urfm" path="res://Assets/Bullets/bullet_hi.png" id="3_btlpq"]
-[ext_resource type="AudioStream" uid="uid://pdr8mx63e6j6" path="res://Assets/Sound/hi3.wav" id="3_qib5c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bx26o"]
 radius = 17.2627
@@ -79,6 +78,3 @@ texture = ExtResource("3_btlpq")
 libraries = {
 "": SubResource("AnimationLibrary_63j3g")
 }
-
-[node name="DefaultAudio" parent="." index="3"]
-stream = ExtResource("3_qib5c")

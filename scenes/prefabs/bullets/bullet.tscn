@@ -62,7 +62,7 @@ _data = {
 "shot": SubResource("Animation_ontox")
 }
 
-[node name="Bullet" type="CharacterBody2D" groups=["Bullets"]]
+[node name="Bullet2" type="CharacterBody2D" groups=["Bullets"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_q2xto")
