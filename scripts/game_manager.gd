@@ -8,9 +8,6 @@ var is_game_over : bool = false
 
 func _process(delta):
     check_exit()
-    if score < -1000 and not is_game_over:
-        is_game_over = true
-        get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
 
 func do_restart():
     score = 0
@@ -30,3 +27,8 @@ func add_death():
 func check_exit():
     if Input.is_action_just_pressed("Exit"):
         get_tree().quit()
+
+func trigger_game_over():
+    if not is_game_over:
+        is_game_over = true
+        get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")

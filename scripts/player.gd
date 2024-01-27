@@ -43,3 +43,6 @@ func _on_collision_body_entered(_body):
     if _body.is_in_group("Enemies"):
         player_life -= _body.dmg
         _body.queue_free()
+
+        if player_life <= 0:
+            GameManager.trigger_game_over()
