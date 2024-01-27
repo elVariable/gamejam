@@ -1,8 +1,10 @@
 extends Node2D
 
+class_name Weapon
+
 var bullet_scene = load("scenes/prefabs/bullet.tscn")
 
-var base_spawn_time = .5
+var base_spawn_time = .1
 var base_spawn_rate = 1
 
 var cnt_spawn_time = base_spawn_time
@@ -10,6 +12,8 @@ var cnt_spawn_time = base_spawn_time
 var bullet_speed = 1700
 var bullet_dmg = 50
 var bullet_pircing = 1
+
+var bullet_scale = Vector2(1, 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +35,7 @@ func _process(delta):
                 bullet_instance.speed = bullet_speed
                 bullet_instance.dmg = bullet_dmg
                 bullet_instance.pircing = bullet_pircing
+                bullet_instance.scale = bullet_scale
         cnt_spawn_time = base_spawn_time
 
 func get_legit_spawn():
