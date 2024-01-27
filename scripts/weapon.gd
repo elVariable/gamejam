@@ -2,7 +2,7 @@ extends Node2D
 
 var bullet_scene = load("scenes/prefabs/bullet.tscn")
 
-var base_spawn_time = .1
+var base_spawn_time = .5
 var base_spawn_rate = 1
 
 var cnt_spawn_time = base_spawn_time
