@@ -7,7 +7,7 @@
 
 [node name="Bullet" type="CharacterBody2D" groups=["Bullets"]]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_q2xto")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

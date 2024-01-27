@@ -28,7 +28,9 @@ func _on_area_2d_body_entered(_body):
     if _body.is_in_group("Bullets"):
         GameManager.add_score(score)
         health -= _body.dmg
-        _body.queue_free()
+        _body.pircing -= 1
+        if _body.pircing <= 0:
+            _body.queue_free()
         if health <= 0:
             queue_free()
 
