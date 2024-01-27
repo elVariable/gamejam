@@ -8,6 +8,8 @@ var score = 20
 
 var dmg = 10
 
+var resource = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     #speed = get_node("%Player").speed * 0.7
@@ -49,3 +51,13 @@ func _on_area_2d_body_entered(_body):
     if _body.is_in_group("Bullets"):
         handle_bullet_hit(_body)
 
+func get_enemy_spawn_amount(
+    difficulty: int,
+    type: String = "",
+):
+    var enemy_spawn_amount = pow(2, difficulty)
+    return enemy_spawn_amount
+
+func create_instance():
+    if resource:
+        return resource.instantiate()

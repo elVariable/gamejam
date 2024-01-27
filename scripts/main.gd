@@ -1,12 +1,17 @@
 extends Node2D
 
 
+#var enemies: Dictionary = {
+    #"grumpy_cat" : preload("res://scenes/prefabs/enemies/grumpy_the_cat.tscn"),
+    #"grumpy_old_man" : preload("res://scenes/prefabs/enemies/grumpy_old_man.tscn"),
+    #"grumpy_house_plant" : preload("res://scenes/prefabs/enemies/grumpy_house_plant.tscn"),
+#}
 var enemies: Dictionary = {
-    "grumpy_cat" : preload("res://scenes/prefabs/enemies/grumpy_the_cat.tscn"),
-    "grumpy_old_man" : preload("res://scenes/prefabs/enemies/grumpy_old_man.tscn"),
-    "grumpy_house_plant" : preload("res://scenes/prefabs/enemies/grumpy_house_plant.tscn"),
+    "grumpy_cat" : GrumpyTheCat.new(),
+    "grumpy_old_man" : GrumpyOldMan.new(),
+    "grumpy_house_plant" : GrumpyHousePlant.new(),
 }
-var enemy_scene = enemies["grumpy_old_man"]
+var enemy_class = enemies["grumpy_old_man"]
 
 var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
@@ -44,20 +49,20 @@ func update_enemy_difficulty(delta):
         last_enemy_dificulty_increase_timer += delta
 
 func get_enemy_spawn_amount(
-    difficulty: float,
+    difficulty: int,
     type: String = "",
 ):
-    var enemy_spawn_amount = pow(2, current_difficulty)
-    print(enemy_spawn_amount)
+    var enemy_spawn_amount = pow(2, difficulty)
     return enemy_spawn_amount
 
 func enemy_spawner(delta):
     if last_enemy_spawn_time < enemy_spawn_timer:
         last_enemy_spawn_time += delta
     else:
+        print(Enemy.new().get_enemy_spawn_amount(current_difficulty))
         var enemy_spawn_amount = get_enemy_spawn_amount(current_difficulty)
         for i in range(enemy_spawn_amount):
-            var enemy_instance = enemy_scene.instantiate()
+            var enemy_instance = enemy_class.create_instance()
             add_child(enemy_instance)
             enemy_instance.position = get_legit_spawn()
         last_enemy_spawn_time = 0
