@@ -1,7 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://l071op42lnta"]
+[gd_scene load_steps=10 format=3 uid="uid://l071op42lnta"]
 
 [ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_ftwda"]
 [ext_resource type="Script" path="res://scripts/bullets/hi_bullet.gd" id="2_q7ygl"]
+[ext_resource type="Texture2D" uid="uid://c76mb5ap1urfm" path="res://Assets/Bullets/bullet_hi.png" id="3_btlpq"]
 
-[node name="Bullet2" instance=ExtResource("1_ftwda")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx26o"]
+radius = 17.2627
+
+[sub_resource type="Animation" id="Animation_82fri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2t074"]
+resource_name = "flying"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 3, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ontox"]
+resource_name = "shot"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 0, 5, 6, 7, 8, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63j3g"]
+resource_local_to_scene = true
+_data = {
+"RESET": SubResource("Animation_82fri"),
+"flying": SubResource("Animation_2t074"),
+"shot": SubResource("Animation_ontox")
+}
+
+[node name="Bullet" instance=ExtResource("1_ftwda")]
+scale = Vector2(0.774794, 0.774794)
 script = ExtResource("2_q7ygl")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_bx26o")
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("3_btlpq")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_63j3g")
+}
+
+[node name="DefaultAudio" parent="." index="3"]
+stream = ExtResource("3_qib5c")
+

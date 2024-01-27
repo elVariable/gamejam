@@ -1,7 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://dplopjcahplft"]
+[gd_scene load_steps=9 format=3 uid="uid://dplopjcahplft"]
 
 [ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_xtfa0"]
 [ext_resource type="Script" path="res://scripts/bullets/ha_bullet.gd" id="2_dju7o"]
+[ext_resource type="Texture2D" uid="uid://cdfy22w2s4bkg" path="res://Assets/Bullets/bullet_ha.png" id="3_6wc73"]
+
+[sub_resource type="Animation" id="Animation_82fri"]
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ontox"]
+resource_name = "shot"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 0, 5, 6, 7, 8, 10]
+}
+
+[sub_resource type="Animation" id="Animation_ckmr0"]
+resource_name = "flying"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ggwa3"]
+resource_local_to_scene = true
+_data = {
+"RESET": SubResource("Animation_82fri"),
+"flying": SubResource("Animation_ckmr0"),
+"shot": SubResource("Animation_ontox")
+}
 
 [node name="Bullet2" instance=ExtResource("1_xtfa0")]
 script = ExtResource("2_dju7o")
+
+[node name="Icon" parent="." index="1"]
+texture = ExtResource("3_6wc73")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_ggwa3")
+}
+
+[node name="DefaultAudio" parent="." index="3"]
+stream = ExtResource("3_6mrbi")
