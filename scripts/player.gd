@@ -59,9 +59,11 @@ func fire():
     elif Input.is_action_just_pressed("Fire2"):
         #print("Fire2")
         modulate = Color(0, 0, 255)
+        switch_weapon("he_weapon")
     elif Input.is_action_just_pressed("Fire3"):
         #print("Fire3")
         modulate = Color(120, 120, 0)
+        switch_weapon("ho_weapon")
     elif Input.is_action_just_released("Fire0") or Input.is_action_just_released("Fire1") or Input.is_action_just_released("Fire2") or Input.is_action_just_released("Fire3"):
         modulate = Color(255, 255, 255)
 
