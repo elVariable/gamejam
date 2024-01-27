@@ -20,10 +20,10 @@ offset_bottom = 40.0
 [node name="ScoreLabel" type="Label" parent="Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 856.0
-offset_top = 40.0
-offset_right = 898.0
-offset_bottom = 63.0
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 74.0
+offset_bottom = 71.0
 text = "score
 "
 horizontal_alignment = 1
@@ -37,10 +37,10 @@ offset_bottom = 40.0
 [node name="TimeLabel" type="Label" parent="Time"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 856.0
-offset_top = 16.0
-offset_right = 896.0
-offset_bottom = 39.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 47.0
 text = "time"
 horizontal_alignment = 1
 
@@ -53,8 +53,23 @@ offset_bottom = 40.0
 [node name="LifeLabel" type="Label" parent="Life"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 856.0
-offset_top = 64.0
-offset_right = 896.0
-offset_bottom = 87.0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 95.0
 text = "life"
+
+[node name="Enemies" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnemiesLabel" type="Label" parent="Enemies"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 98.0
+offset_bottom = 119.0
+text = "enemies"
