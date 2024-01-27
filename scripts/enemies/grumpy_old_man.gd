@@ -7,3 +7,9 @@ func _init():
 
 func _ready():
     pass
+
+func get_enemy_spawn_amount(
+    difficulty: int,
+):
+    var enemy_spawn_amount = pow(2, difficulty)
+    return 2

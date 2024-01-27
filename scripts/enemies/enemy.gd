@@ -53,7 +53,6 @@ func _on_area_2d_body_entered(_body):
 
 func get_enemy_spawn_amount(
     difficulty: int,
-    type: String = "",
 ):
     var enemy_spawn_amount = pow(2, difficulty)
     return enemy_spawn_amount
