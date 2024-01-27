@@ -8,3 +8,8 @@ script = ExtResource("2_8tq81")
 
 [node name="Icon" parent="." index="0"]
 modulate = Color(0.317647, 0.317647, 0.317647, 1)
+
+[node name="UpdateTargetTimer" type="Timer" parent="." index="4"]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="UpdateTargetTimer" to="." method="update_target_pos"]

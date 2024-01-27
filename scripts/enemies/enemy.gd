@@ -17,11 +17,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    var target_pos = get_node("/root/level/Player").position
-    var direction = (target_pos - position).normalized()
+    var player_pos = get_node("/root/level/Player").position
+    update_rotation(player_pos)
+    movement(delta, player_pos)
 
-    velocity = direction * speed
+func update_rotation(target_pos):
     look_at(target_pos)
+
+func movement(delta, target_pos):
+    var direction = (target_pos - position).normalized()
+    velocity = direction * speed
 
     $AnimationPlayer.play("Walk")
     if direction.x < 0:
@@ -29,7 +34,7 @@ func _process(delta):
     else:
         $Icon.flip_v = false
 
-    if position.distance_to(target_pos) > 5:
+    if position.distance_to(target_pos) > 5: # fix shaky behaviour
         move_and_slide()
 
 func handle_bullet_hit(bullet: Bullet):
@@ -60,3 +65,15 @@ func get_enemy_spawn_amount(
 func create_instance():
     if resource:
         return resource.instantiate()
+
+func get_legit_spawn(window_size, player_pos, min_dist_to_player = -1):
+    var new_pos = Vector2(randi() % int(window_size.x), randi() % int(window_size.y))    
+    if min_dist_to_player == -1:
+     min_dist_to_player = window_size.x / 2.5
+
+    while true:
+        # has potential to freeze the game - lol
+        if player_pos.distance_to(new_pos) > min_dist_to_player:
+            return new_pos
+        else:
+            new_pos = Vector2(randi() % int(window_size.x), randi() % int(window_size.y))
