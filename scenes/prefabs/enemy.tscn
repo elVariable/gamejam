@@ -33,7 +33,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(12.5323, 4.91431)
 rotation = -0.452129
-
 shape = SubResource("RectangleShape2D_qe55r")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
