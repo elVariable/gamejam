@@ -97,4 +97,4 @@ func _on_collision_body_entered(_body):
         if _body.heal:
             player_life += _body.heal
             _body.queue_free()
-            animate_color_blink(Color.GREEN)
+            animate_color_blink(Color.LIGHT_GREEN)
