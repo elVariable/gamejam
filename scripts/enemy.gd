@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = 500 # pixel per second
 var health = 100
+var score = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,5 +24,9 @@ func _process(delta):
 func _on_area_2d_body_entered(_body):
     print("Enemy: _on_collision_body_entered")
     if _body.is_in_group("Bullets"):
-        queue_free()
+        GameManager.add_score(score)
+        health -= _body.dmg
+        _body.queue_free()
+        if health <= 0:
+            queue_free()
 
