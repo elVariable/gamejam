@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Weapon
 
-var bullet_scene = load("scenes/prefabs/bullet.tscn")
+var bullet_scene = load("scenes/prefabs/bullets/bullet.tscn")
 
 var base_spawn_time = .1
 var base_spawn_rate = 1
