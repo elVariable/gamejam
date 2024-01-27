@@ -48,6 +48,7 @@ func handle_bullet_hit(bullet: Bullet):
 
 func despawn_enemy():
     GameManager.add_score(score)
+    GameManager.add_kills()
     queue_free()
 
 func despawn_bullet(bullet: Bullet):
