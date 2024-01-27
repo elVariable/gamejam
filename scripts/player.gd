@@ -20,11 +20,13 @@ func movement():
     
     if Input.is_action_just_pressed("Left"):
         $Icon.flip_h = true
-        $Weapon.position.x = -$Weapon.position.x
+        if $Weapon.position.x > 0:
+            $Weapon.position.x = -$Weapon.position.x
     
     if Input.is_action_just_pressed("Right"):
-        $Icon.flip_h = false        
-        $Weapon.position.x = -$Weapon.position.x
+        $Icon.flip_h = false
+        if $Weapon.position.x < 0:
+            $Weapon.position.x = -$Weapon.position.x
     
     if not velocity.is_zero_approx():
         $AnimationPlayer.play("Shot")
