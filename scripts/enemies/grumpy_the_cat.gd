@@ -11,5 +11,4 @@ func _ready():
 func get_enemy_spawn_amount(
     difficulty: int,
 ):
-    var enemy_spawn_amount = pow(2, difficulty)
-    return 3
+    return pow(1.2, difficulty)
