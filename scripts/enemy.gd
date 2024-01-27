@@ -17,6 +17,12 @@ func _process(delta):
     velocity = direction * speed
     look_at(target_pos)
     
+    $AnimationPlayer.play("Walk")
+    if direction.x < 0:
+        $Icon.flip_v = true
+    else:
+        $Icon.flip_v = false
+    
     if position.distance_to(target_pos) > 5:
         move_and_slide()
 
