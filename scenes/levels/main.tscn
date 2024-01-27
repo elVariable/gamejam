@@ -846,6 +846,9 @@ script = ExtResource("6_7r0ql")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
+[node name="WaveTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ChickpeaTimer" to="ChickpeaTimer" method="_on_timeout"]
 [connection signal="timeout" from="DifficutlyTimer" to="." method="_on_difficutly_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

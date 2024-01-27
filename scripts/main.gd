@@ -15,12 +15,12 @@ var last_enemy_dificulty_increase_timer = 0
 var next_enemy_dificulty_increase = 5
 
 var wave_duration = 40 # seconds
-var current_wave_duration = 0
 
 var intermediate_scene = load("res://scenes/levels/intermediate.tscn")
 
 var difficulty_timer : Timer = null
 var spawn_timer : Timer = null
+var wave_timer : Timer = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,12 +32,12 @@ func _ready():
     spawn_timer = get_node("SpawnTimer")
     spawn_timer.start(enemy_spawn_timer)
 
+    wave_timer = get_node("WaveTimer")
+    wave_timer.start(wave_duration)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
-    current_wave_duration += delta
-    if current_wave_duration > wave_duration:
-        end_wave()
+    pass
 
 func end_wave():
     get_tree().paused = true
@@ -50,7 +50,6 @@ func end_wave():
 
     # Prepare for next wave
     current_start_difficulty += 1
-    current_wave_duration = 0
     current_difficulty = 3 * current_start_difficulty
     
     # clear all enemies
@@ -76,3 +75,6 @@ func _on_spawn_timer_timeout():
             enemy_instance.position = e.get_legit_spawn(get_window().size, get_node("%Player").position)
 
     spawn_timer.start(enemy_spawn_timer)
+
+func _on_wave_timer_timeout():
+    end_wave()
