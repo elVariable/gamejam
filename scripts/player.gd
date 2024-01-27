@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export
 var speed = 700
 
-
+@export
+var player_life = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,5 +41,5 @@ func fire():
 func _on_collision_body_entered(_body):
     print("Player: _on_collision_body_entered")
     if _body.is_in_group("Enemies"):
-        GameManager.add_score(-10)
+        player_life -= _body.dmg
         _body.queue_free()
