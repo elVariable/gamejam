@@ -5,18 +5,60 @@
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_x4pkk")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1915.0
+offset_bottom = 1078.0
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+unique_name_in_owner = true
 offset_left = 377.0
 offset_top = 246.0
 offset_right = 814.0
 offset_bottom = 328.0
 text = "You DIED. HAHA"
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="Control"]
 offset_left = 513.0
 offset_top = 436.0
 offset_right = 578.0
 offset_bottom = 467.0
 text = "Restart"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="ScoreView" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 192.0
+offset_right = 1725.0
+offset_bottom = 977.0
+bbcode_enabled = true
+
+[node name="SubmitScore" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UserName" type="TextEdit" parent="Control/SubmitScore"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1045.0
+offset_top = 108.0
+offset_right = 1212.0
+offset_bottom = 151.0
+placeholder_text = "Enter Your Name"
+
+[node name="Button" type="Button" parent="Control/SubmitScore"]
+layout_mode = 0
+offset_left = 1221.0
+offset_top = 108.0
+offset_right = 1354.0
+offset_bottom = 151.0
+text = "Submit Score"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed_restart"]
+[connection signal="pressed" from="Control/SubmitScore/Button" to="." method="_on_button_pressed_submit"]
