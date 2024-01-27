@@ -20,7 +20,7 @@ func _http_request_completed(result, response_code, headers, body):
     update_scoreboard_text(json.get_data())
 
 func update_scoreboard():
-    $Control/ScoreView.text = "[b]Scoreboard[/b]\nLoading..."
+    $Control/ScoreView.text = "[b][rainbow][font_size=22]Scoreboard[/font_size][/rainbow][/b]\nLoading..."
     # Perform a GET request. The URL below returns JSON as of writing.
     var error = $HTTPRequest.request("http://msg.elvariable.de/index.php?json")
     if error != OK:
@@ -30,11 +30,23 @@ func update_scoreboard_text(json_data):
     if not json_data:
         update_scoreboard()
         return
-        
-    $Control/ScoreView.text = "[b]Scoreboard[/b]"    
+    $Control/ScoreView.clear()
+
+    $Control/ScoreView.text = "[b][rainbow][font_size=22]Scoreboard[/font_size][/rainbow][/b]"
+
     # Sorting is already done by the backend (at least I hope so)
+    var i = 0
     for entry in json_data:
-        $Control/ScoreView.text += "\n" + entry["name"] + ": " + str(entry["score"])
+        var color = Color.WEB_GRAY.to_html()
+        if i == 0:
+            color = Color.GOLD.to_html()
+        elif i == 1:
+            color = Color.SILVER.to_html()
+        elif i == 2:
+            color = Color.SADDLE_BROWN.to_html()
+
+        $Control/ScoreView.text += ("\n[color=" + str(color) + "]" + entry["name"] + ": " + str(entry["score"]) + "[/color]")
+        i+=1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

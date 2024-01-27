@@ -30,6 +30,7 @@ text = "Restart"
 
 [node name="ScoreView" type="RichTextLabel" parent="Control"]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 0
 offset_left = 1045.0
 offset_top = 192.0
