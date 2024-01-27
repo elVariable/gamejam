@@ -1,13 +1,16 @@
 extends Node2D
 
-var enemy_scene = load("scenes/prefabs/enemy.tscn")
 
+var enemy_scene = load("scenes/prefabs/enemy.tscn")
 var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
-var enemy_spawn_amount = 2
+var current_start_difficulty = 1
 var current_difficulty = 1
+var enemy_spawn_amount = 2
 var last_enemy_dificulty_increase_timer = 0
 var next_enemy_dificulty_increase = 5
+
+var wave_duration = 30 # seconds
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,7 +43,7 @@ func enemy_spawner(delta):
 func get_legit_spawn():
     var res = get_viewport_rect()
     var new_pos = Vector2(randi() % int(res.end.x), randi() % int(res.end.y))
-    var min_dist_to_player = res.end.x / 2
+    var min_dist_to_player = res.end.x / 2.5
         
     while true:
         # has potential to freeze the game - lol
@@ -48,4 +51,10 @@ func get_legit_spawn():
             return new_pos
         else:
             new_pos = Vector2(randi() % int(res.end.x), randi() % int(res.end.y))
-        
+
+func end_wave():
+    # load intermediate
+    # pause game
+    # clear enemies
+    # set start difficulty
+    pass
