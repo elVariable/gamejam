@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://car7qsfo2yawc"]
+
+[ext_resource type="PackedScene" uid="uid://tn60djfck7wo" path="res://scenes/prefabs/enemies/enemy.tscn" id="1_qkh4x"]
+[ext_resource type="Script" path="res://scripts/enemies/grumpy_old_man.gd" id="2_8tq81"]
+
+[node name="Enemy" instance=ExtResource("1_qkh4x")]
+script = ExtResource("2_8tq81")
+
+[node name="Icon" parent="." index="0"]
+modulate = Color(0.317647, 0.317647, 0.317647, 1)

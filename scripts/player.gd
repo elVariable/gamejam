@@ -75,7 +75,6 @@ func switch_weapon(name):
     weapon = new_weapon
 
 func _on_collision_body_entered(_body):
-    print("Player: _on_collision_body_entered")
     if _body.is_in_group("Enemies"):
         player_life -= _body.dmg
         _body.queue_free()

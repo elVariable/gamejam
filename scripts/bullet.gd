@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Bullet
+
 var speed = GameManager.default_bullet_speed
 var direction = GameManager.default_bullet_direction
 var dmg = GameManager.default_bullet_dmg
