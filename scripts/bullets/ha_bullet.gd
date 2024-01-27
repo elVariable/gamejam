@@ -2,10 +2,12 @@ extends Bullet
 
 class_name HaBullet
 
-func _init():
-    pass
+var sounds = [
+    "res://Assets/Sound/ha1.wav",
+    "res://Assets/Sound/ha2.wav",
+    "res://Assets/Sound/ha3.wav",
+]
 
-func play_hit_sound():
-    audio_queue.push_back($DefaultAudio)
-    if audio_queue.size() == 1:
-        audio_queue.pop_front().play()
+func _init():
+    $DefaultAudio.stream = load(sounds[randi() % sounds.size()])
+    pass

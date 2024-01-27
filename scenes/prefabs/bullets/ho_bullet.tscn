@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs06jmwg6vw34"]
+[gd_scene load_steps=3 format=3 uid="uid://cs06jmwg6vw34"]
 
 [ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_8crue"]
 [ext_resource type="Script" path="res://scripts/bullets/ho_bullet.gd" id="3_26jn5"]
-[ext_resource type="AudioStream" uid="uid://b0eukdwf1ixet" path="res://Assets/Sound/ho3.wav" id="3_b7te0"]
 
 [node name="Bullet" instance=ExtResource("1_8crue")]
 script = ExtResource("3_26jn5")
-
-[node name="DefaultAudio" parent="." index="3"]
-stream = ExtResource("3_b7te0")
