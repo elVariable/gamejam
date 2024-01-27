@@ -21,5 +21,7 @@ func update_target_pos():
 func get_enemy_spawn_amount(
     difficulty: int,
 ):
-    var enemy_spawn_amount = pow(2, difficulty)
-    return 2
+    if difficulty > 5:
+        return int((difficulty - 5) / 2)
+    else:
+        return 0

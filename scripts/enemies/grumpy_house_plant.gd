@@ -18,9 +18,11 @@ func movement(delta, target_pos):
 func get_enemy_spawn_amount(
     difficulty: int,
 ):
-    var enemy_spawn_amount = pow(2, difficulty)
-    return 1
+    if difficulty > 5:
+        return difficulty % 5
+    else:
+        return 0
 
 func get_legit_spawn(window_size, player_pos, min_dist_to_player = -1):
-    min_dist_to_player = window_size.x / 10
+    min_dist_to_player = window_size.x / 20
     return super.get_legit_spawn(window_size, player_pos, min_dist_to_player)

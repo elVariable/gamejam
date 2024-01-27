@@ -46,7 +46,7 @@ _data = {
 script = ExtResource("2_yt1aw")
 
 [node name="Icon" parent="." index="0"]
-modulate = Color(0.427451, 0.941176, 0.384314, 1)
+modulate = Color(1, 1, 1, 1)
 texture = ExtResource("3_ncnrk")
 
 [node name="AnimationPlayer" parent="." index="3"]

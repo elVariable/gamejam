@@ -46,7 +46,7 @@ _data = {
 "Walk": SubResource("Animation_x62mb")
 }
 
-[node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
+[node name="Enemy2" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_dg030")
