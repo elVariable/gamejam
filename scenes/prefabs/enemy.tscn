@@ -25,6 +25,12 @@ vframes = 4
 position = Vector2(8.5, 10)
 shape = SubResource("RectangleShape2D_27qgf")
 
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_24ns0")
+}
+
 [node name="Area2D" type="Area2D" parent="."]
 rotation = 0.463648
 collision_layer = 2
@@ -33,6 +39,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(12.5323, 4.91431)
 rotation = -0.452129
+
 shape = SubResource("RectangleShape2D_qe55r")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
