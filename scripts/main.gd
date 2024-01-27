@@ -6,7 +6,7 @@ var enemies: Dictionary = {
     "grumpy_old_man" : preload("res://scenes/prefabs/enemies/grumpy_old_man.tscn"),
     "grumpy_house_plant" : preload("res://scenes/prefabs/enemies/grumpy_house_plant.tscn"),
 }
-var enemy_scene = enemies["grumpy_house_plant"]
+var enemy_scene = enemies["grumpy_old_man"]
 
 var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
