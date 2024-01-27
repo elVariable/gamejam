@@ -51,7 +51,4 @@ func get_closest_enemy_or_null():
             if (distance_to_this_enemy < distance_to_closest_enemy):
                 closest_enemy = e
 
-    if closest_enemy:
-        closest_enemy.modulate = Color(120, 0, 0)
-
     return closest_enemy
