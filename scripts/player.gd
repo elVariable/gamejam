@@ -17,6 +17,19 @@ func _process(delta):
 func movement():
     var move_dir = Input.get_vector("Left", "Right", "Up", "Down")
     velocity = move_dir * speed
+    
+    if Input.is_action_just_pressed("Left"):
+        $Icon.flip_h = true
+        $Weapon.position.x = -$Weapon.position.x
+    
+    if Input.is_action_just_pressed("Right"):
+        $Icon.flip_h = false        
+        $Weapon.position.x = -$Weapon.position.x
+    
+    if not velocity.is_zero_approx():
+        $AnimationPlayer.play("Shot")
+    else:
+        $AnimationPlayer.stop()    
 
     position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
     move_and_slide()
