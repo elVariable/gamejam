@@ -12,7 +12,7 @@ var enemy_spawn_timer = 3 # seconds
 var last_enemy_spawn_time = 0
 var current_start_difficulty = 1
 var current_difficulty = 1
-var enemy_spawn_amount = 2
+
 var last_enemy_dificulty_increase_timer = 0
 var next_enemy_dificulty_increase = 5
 
@@ -30,7 +30,7 @@ func _ready():
 func _process(delta):
     update_enemy_difficulty(delta)
     enemy_spawner(delta)
-    
+
     current_wave_duration += delta
     if current_wave_duration > wave_duration:
         end_wave()
@@ -38,16 +38,24 @@ func _process(delta):
 func update_enemy_difficulty(delta):
     if last_enemy_dificulty_increase_timer > next_enemy_dificulty_increase:
         current_difficulty += 1
-        enemy_spawn_amount += 2 * current_difficulty
         last_enemy_dificulty_increase_timer = 0
         next_enemy_dificulty_increase = next_enemy_dificulty_increase * 1.3
     else:
         last_enemy_dificulty_increase_timer += delta
 
+func get_enemy_spawn_amount(
+    difficulty: float,
+    type: String = "",
+):
+    var enemy_spawn_amount = pow(2, current_difficulty)
+    print(enemy_spawn_amount)
+    return enemy_spawn_amount
+
 func enemy_spawner(delta):
     if last_enemy_spawn_time < enemy_spawn_timer:
         last_enemy_spawn_time += delta
     else:
+        var enemy_spawn_amount = get_enemy_spawn_amount(current_difficulty)
         for i in range(enemy_spawn_amount):
             var enemy_instance = enemy_scene.instantiate()
             add_child(enemy_instance)
