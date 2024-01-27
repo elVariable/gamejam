@@ -20,7 +20,7 @@ func _http_request_completed(result, response_code, headers, body):
     update_scoreboard_text(json.get_data())
 
 func update_scoreboard():
-    $Control/ScoreView.text = "[b][rainbow][font_size=22]Scoreboard[/font_size][/rainbow][/b]\nLoading..."
+    $Control/ScoreView.text = "[b][rainbow][font_size=22]Worldwide Highscore[/font_size][/rainbow][/b]\nLoading..."
     # Perform a GET request. The URL below returns JSON as of writing.
     var error = $HTTPRequest.request("http://msg.elvariable.de/index.php?json")
     if error != OK:
@@ -32,7 +32,7 @@ func update_scoreboard_text(json_data):
         return
     $Control/ScoreView.clear()
 
-    $Control/ScoreView.text = "[b][rainbow][font_size=22]Scoreboard[/font_size][/rainbow][/b]"
+    $Control/ScoreView.text = "[b][rainbow][font_size=22]Worldwide Highscore[/font_size][/rainbow][/b]"
 
     # Sorting is already done by the backend (at least I hope so)
     var i = 0

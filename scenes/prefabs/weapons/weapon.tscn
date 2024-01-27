@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://waymfxg1fs2a"]
+[gd_scene load_steps=7 format=3 uid="uid://waymfxg1fs2a"]
 
 [ext_resource type="Script" path="res://scripts/weapons/weapon.gd" id="1_ell4r"]
 [ext_resource type="Texture2D" uid="uid://p22jssbmru7k" path="res://icon.svg" id="2_q5apk"]
+[ext_resource type="Texture2D" uid="uid://cdfy22w2s4bkg" path="res://Assets/Bullets/bullet_ha.png" id="3_gmcqj"]
+[ext_resource type="Texture2D" uid="uid://sef85bhcbc1f" path="res://Assets/Bullets/bullet_he.png" id="4_mka0a"]
+[ext_resource type="Texture2D" uid="uid://c76mb5ap1urfm" path="res://Assets/Bullets/bullet_hi.png" id="5_ci752"]
+[ext_resource type="Texture2D" uid="uid://c3gkk1rdxdmss" path="res://Assets/Bullets/bullet_ho.png" id="6_5w28h"]
 
-[node name="Weapon" type="Node2D"]
+[node name="Weapon2" type="Node2D"]
 script = ExtResource("1_ell4r")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -13,5 +17,80 @@ scale = Vector2(0.367188, 0.304688)
 texture = ExtResource("2_q5apk")
 
 [node name="BulletTimer" type="Timer" parent="."]
+
+[node name="WeaponView" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -67.0
+offset_top = 45.0
+offset_right = 75.0
+offset_bottom = 85.0
+
+[node name="ha_box" type="ColorRect" parent="WeaponView"]
+modulate = Color(1, 1, 1, 0.580392)
+layout_mode = 0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 43.0
+offset_bottom = 26.0
+color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[node name="ha_weapon" type="Sprite2D" parent="WeaponView/ha_box"]
+position = Vector2(10, 10)
+scale = Vector2(0.0634766, 0.0606554)
+texture = ExtResource("3_gmcqj")
+hframes = 4
+vframes = 4
+
+[node name="he_box" type="ColorRect" parent="WeaponView"]
+modulate = Color(1, 1, 1, 0.580392)
+layout_mode = 0
+offset_left = 69.0
+offset_top = 6.0
+offset_right = 89.0
+offset_bottom = 26.0
+color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[node name="he_weapon" type="Sprite2D" parent="WeaponView/he_box"]
+position = Vector2(11, 9)
+scale = Vector2(0.163086, 0.163086)
+texture = ExtResource("4_mka0a")
+hframes = 4
+vframes = 4
+frame = 6
+
+[node name="hi_box" type="ColorRect" parent="WeaponView"]
+modulate = Color(1, 1, 1, 0.580392)
+layout_mode = 0
+offset_left = 46.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 26.0
+color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[node name="hi_weapon" type="Sprite2D" parent="WeaponView/hi_box"]
+position = Vector2(10, 10)
+scale = Vector2(0.0805664, 0.0805664)
+texture = ExtResource("5_ci752")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="ho_box" type="ColorRect" parent="WeaponView"]
+modulate = Color(1, 1, 1, 0.580392)
+layout_mode = 0
+offset_left = 92.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 26.0
+color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[node name="ho_weapon" type="Sprite2D" parent="WeaponView/ho_box"]
+position = Vector2(9.99999, 10)
+scale = Vector2(0.202148, 0.208392)
+texture = ExtResource("6_5w28h")
+hframes = 4
+vframes = 4
+frame = 1
 
 [connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
