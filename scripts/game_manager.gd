@@ -6,6 +6,7 @@ var score : int = 0
 var death_counter : int = 0
 var is_game_over : bool = false
 var wave : int = 1
+var kills : int = 0
 
 var default_bullet_speed : int = 100
 var default_bullet_dmg : int = 20
@@ -22,6 +23,9 @@ func do_restart():
 # Adds 1 to score variable
 func add_score(num = 1):
     score += num
+
+func add_kills(num = 1):
+    kills += num
 
 func add_death():
     death_counter += 1

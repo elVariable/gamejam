@@ -73,3 +73,18 @@ offset_top = 96.0
 offset_right = 98.0
 offset_bottom = 119.0
 text = "enemies"
+
+[node name="Kills" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KillsLabel" type="Label" parent="Kills"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = 119.0
+offset_right = 98.0
+offset_bottom = 142.0
+text = "kills"

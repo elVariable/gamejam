@@ -5,6 +5,8 @@ extends Control
 @onready var time_label = %Time/TimeLabel
 @onready var life_label = %Life/LifeLabel
 @onready var enemies_label = %Enemies/EnemiesLabel
+@onready var kills_label = %Kills/KillsLabel
+
 #@onready var death_label = %Death/DeathLabel
 
 
@@ -20,3 +22,5 @@ func _process(_delta):
     life_label.text = "Life: %d" % player.player_life
 
     enemies_label.text = "Enemies alive: %d" % get_tree().get_nodes_in_group("Enemies").size()
+
+    kills_label.text = "Enemies killed: %d" % GameManager.kills
