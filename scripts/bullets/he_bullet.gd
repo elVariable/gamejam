@@ -1,6 +1,6 @@
 extends Bullet
 
-class_name HiBullet
+class_name HeBullet
 
 func _init():
     pass
