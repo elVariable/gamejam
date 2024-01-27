@@ -83,3 +83,6 @@ func _on_collision_body_entered(_body):
 
         if player_life <= 0:
             GameManager.trigger_game_over()
+    elif _body.is_in_group("Items"):
+        player_life += _body.heal
+        _body.queue_free()
