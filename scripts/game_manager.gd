@@ -32,6 +32,9 @@ func do_restart():
     last_restart_time = Time.get_ticks_msec()
     is_game_over = false
 
+    for w in weapons.values():
+        w.weapon_lvl = 1
+
 # Adds 1 to score variable
 func add_score(num = 1):
     score += num
