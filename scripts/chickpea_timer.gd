@@ -13,10 +13,9 @@ func _process(delta):
 
 
 func _on_timeout():
-    var level = get_tree().root
     var res = get_viewport().get_window().size
     var new_pos = Vector2(randi() % int(res.x), randi() % int(res.y))
 
     var chickpea_inst = chickpea.instantiate()
     chickpea_inst.position = new_pos
-    level.add_child(chickpea_inst)
+    get_parent().add_child(chickpea_inst)
