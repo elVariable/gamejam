@@ -25,6 +25,8 @@ func play_hit_sound():
 func cleanup():
     $CollisionShape2D.disabled = true
     visible = false
+    speed = 0
+    position = Vector2(-100,-100)
 
 func _on_default_audio_finished():
     if not visible:

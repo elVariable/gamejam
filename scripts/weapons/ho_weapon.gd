@@ -18,3 +18,6 @@ func _ready():
     get_node("WeaponView/ho_box").modulate = Color.WHITE
     get_node("WeaponView/ho_box").color = Color.WHITE
     super._ready()
+
+func _process(delta):
+    weapon_lvl = GameManager.weapons["ho_weapon"].weapon_lvl
