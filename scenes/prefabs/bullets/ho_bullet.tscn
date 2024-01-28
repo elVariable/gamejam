@@ -80,4 +80,4 @@ libraries = {
 }
 
 [node name="DefaultAudio" parent="." index="3"]
-volume_db = 24.0
+volume_db = 17.441
