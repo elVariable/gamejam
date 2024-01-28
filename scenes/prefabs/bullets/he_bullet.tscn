@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://brod1k1a37nua" path="res://scenes/prefabs/bullets/bullet.tscn" id="1_hhc5h"]
 [ext_resource type="Script" path="res://scripts/bullets/he_bullet.gd" id="2_ng0sj"]
 
-[node name="Bullet" instance=ExtResource("1_hhc5h")]
+[node name="Bullet2" instance=ExtResource("1_hhc5h")]
 scale = Vector2(3.05286, 3.05286)
 script = ExtResource("2_ng0sj")
+
+[node name="DefaultAudio" parent="." index="3"]
+volume_db = 24.0
