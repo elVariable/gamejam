@@ -13,6 +13,8 @@ var default_bullet_dmg : int = 20
 var default_bullet_direction: Vector2 = Vector2(0, 0)
 var default_bullet_pircing: int = 1
 
+var last_restart_time = 0
+
 var weapons: Dictionary = {
     "ha_weapon" : HaWeapon.new(), 
     "he_weapon" : HeWeapon.new(),
@@ -25,6 +27,9 @@ func _process(delta):
 
 func do_restart():
     score = 0
+    kills = 0
+    wave = 1
+    last_restart_time = Time.get_ticks_msec()
     is_game_over = false
 
 # Adds 1 to score variable

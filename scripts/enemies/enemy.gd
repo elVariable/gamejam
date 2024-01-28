@@ -55,7 +55,8 @@ func handle_bullet_hit(bullet: Bullet):
     if health <= 0:
         despawn_enemy()
     else:
-        animate_color_blink(Color.INDIAN_RED)
+        if bullet.dmg >= 0:
+            animate_color_blink(Color.INDIAN_RED)
 
 func despawn_enemy():
     GameManager.add_score(score)

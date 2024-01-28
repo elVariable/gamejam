@@ -67,7 +67,7 @@ func fire_bullets():
             bullet_instance.dmg = get_scaled_dmg()
             bullet_instance.pircing = get_scaled_pircing()
 
-            get_tree().root.add_child(bullet_instance)
+            get_node("/root/level").add_child(bullet_instance)
 
 func _on_bullet_timer_timeout():
     fire_bullets()
