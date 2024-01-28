@@ -54,9 +54,11 @@ func get_closest_enemy_or_null():
 func fire_bullets():
     for i in range(base_spawn_rate):
         var direction = get_normalized_direction()
+        
+     #   var PlayShotAnimation = get_parent().get_node("AnimationPlayer")animation_player.play("Shot")
         if direction:
             var bullet_instance = bullet_scene.instantiate()
-
+            get_parent().get_node("AnimationPlayer").play("Shot")
             bullet_instance.position = get_legit_spawn()
             bullet_instance.direction = get_normalized_direction()
 

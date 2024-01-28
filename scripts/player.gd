@@ -40,9 +40,10 @@ func movement():
             weapon.position.x = -weapon.position.x
     
     if not velocity.is_zero_approx():
-        $AnimationPlayer.play("Shot")
+        $AnimationPlayer.play("Move")
     else:
-        $AnimationPlayer.stop()    
+        pass
+       # $AnimationPlayer.play("Idle")    
 
     position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
     move_and_slide()
