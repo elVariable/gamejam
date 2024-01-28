@@ -13,6 +13,13 @@ var default_bullet_dmg : int = 20
 var default_bullet_direction: Vector2 = Vector2(0, 0)
 var default_bullet_pircing: int = 1
 
+var weapons: Dictionary = {
+    "ha_weapon" : HaWeapon.new(), 
+    "he_weapon" : HeWeapon.new(),
+    "hi_weapon" : HiWeapon.new(),
+    "ho_weapon" : HoWeapon.new(),
+}
+
 func _process(delta):
     check_exit()
 

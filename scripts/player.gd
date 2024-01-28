@@ -8,13 +8,6 @@ var player_life = 100
 
 var weapon = null
 
-var weapons: Dictionary = {
-    "ha_weapon" : HaWeapon.new(), 
-    "he_weapon" : HeWeapon.new(),
-    "hi_weapon" : HiWeapon.new(),
-    "ho_weapon" : HoWeapon.new(),
-}
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
     position = get_viewport_rect().size * 0.5
@@ -68,7 +61,7 @@ func fire():
         pass
 
 func switch_weapon(name):
-    var new_weapon = weapons[name].create_instance()
+    var new_weapon = GameManager.weapons[name].create_instance()
 
     if weapon:
         weapon.queue_free()
