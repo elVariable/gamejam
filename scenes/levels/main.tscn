@@ -848,6 +848,7 @@ script = ExtResource("6_7r0ql")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("6_i3jwl")
+volume_db = -7.495
 autoplay = true
 
 [connection signal="timeout" from="ChickpeaTimer" to="ChickpeaTimer" method="_on_timeout"]

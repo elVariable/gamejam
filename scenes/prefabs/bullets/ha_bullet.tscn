@@ -72,3 +72,6 @@ texture = ExtResource("3_6wc73")
 libraries = {
 "": SubResource("AnimationLibrary_ggwa3")
 }
+
+[node name="DefaultAudio" parent="." index="3"]
+volume_db = 24.0

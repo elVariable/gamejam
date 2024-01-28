@@ -78,3 +78,6 @@ texture = ExtResource("3_7wvxc")
 libraries = {
 "": SubResource("AnimationLibrary_58gpt")
 }
+
+[node name="DefaultAudio" parent="." index="3"]
+volume_db = 24.0

@@ -79,3 +79,6 @@ texture = ExtResource("3_btlpq")
 libraries = {
 "": SubResource("AnimationLibrary_63j3g")
 }
+
+[node name="DefaultAudio" parent="." index="3"]
+volume_db = 24.0

@@ -6,3 +6,6 @@
 [node name="Bullet" instance=ExtResource("1_hhc5h")]
 scale = Vector2(3.05286, 3.05286)
 script = ExtResource("2_ng0sj")
+
+[node name="DefaultAudio" parent="." index="3"]
+volume_db = 24.0
