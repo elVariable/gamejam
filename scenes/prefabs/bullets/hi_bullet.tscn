@@ -65,7 +65,7 @@ _data = {
 "shot": SubResource("Animation_ontox")
 }
 
-[node name="Bullet" instance=ExtResource("1_ftwda")]
+[node name="Bullet2" instance=ExtResource("1_ftwda")]
 scale = Vector2(0.774794, 0.774794)
 script = ExtResource("2_q7ygl")
 
@@ -81,4 +81,4 @@ libraries = {
 }
 
 [node name="DefaultAudio" parent="." index="3"]
-volume_db = 24.0
+volume_db = 13.694
