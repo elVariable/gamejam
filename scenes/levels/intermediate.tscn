@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csxoewps4qdj6"]
+[gd_scene load_steps=4 format=3 uid="uid://csxoewps4qdj6"]
 
 [ext_resource type="Script" path="res://scripts/intermediate.gd" id="1_pmi4j"]
 
@@ -7,30 +7,6 @@ keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_0l8yk"]
 events = [SubResource("InputEventKey_lcrs8")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_6p8fg"]
-device = -1
-keycode = 49
-unicode = 49
-
-[sub_resource type="Shortcut" id="Shortcut_6gq2e"]
-events = [SubResource("InputEventKey_6p8fg")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_g24k5"]
-device = -1
-keycode = 50
-unicode = 50
-
-[sub_resource type="Shortcut" id="Shortcut_2o4xx"]
-events = [SubResource("InputEventKey_g24k5"), null]
-
-[sub_resource type="InputEventKey" id="InputEventKey_mhn1a"]
-device = -1
-keycode = 51
-unicode = 51
-
-[sub_resource type="Shortcut" id="Shortcut_b3x43"]
-events = [SubResource("InputEventKey_mhn1a")]
 
 [node name="Intermediate" type="Node2D"]
 process_mode = 2
@@ -80,29 +56,38 @@ bbcode_enabled = true
 [node name="Option1" type="Button" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1339.0
-offset_top = 200.0
-offset_right = 1465.0
-offset_bottom = 290.0
-shortcut = SubResource("Shortcut_6gq2e")
+offset_left = 557.0
+offset_top = 176.0
+offset_right = 683.0
+offset_bottom = 266.0
 
 [node name="Option2" type="Button" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1339.0
-offset_top = 330.0
-offset_right = 1465.0
-offset_bottom = 420.0
-shortcut = SubResource("Shortcut_2o4xx")
+offset_left = 732.0
+offset_top = 176.0
+offset_right = 858.0
+offset_bottom = 266.0
 
 [node name="Option3" type="Button" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1339.0
-offset_top = 468.0
-offset_right = 1465.0
-offset_bottom = 558.0
-shortcut = SubResource("Shortcut_b3x43")
+offset_left = 904.0
+offset_top = 176.0
+offset_right = 1030.0
+offset_bottom = 266.0
+
+[node name="Option4" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 177.0
+offset_right = 1191.0
+offset_bottom = 267.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Control/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="Control/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="Control/Option4" to="." method="_on_option_4_pressed"]
