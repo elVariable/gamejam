@@ -16,6 +16,8 @@ var resource = null
 
 var weapon_lvl : int = 1
 
+var weapon_name : String = "BaseWeapon"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     bullet_timer = get_node("BulletTimer")

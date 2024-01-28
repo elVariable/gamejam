@@ -9,6 +9,8 @@ func _init():
     base_spawn_time = 0.15
     base_spawn_rate = 1
 
+    weapon_name = "HiWeapon"
+
     bullet_scene = load("res://scenes/prefabs/bullets/hi_bullet.tscn")
     resource = preload("res://scenes/prefabs/weapons/hi_weapon.tscn")
 
