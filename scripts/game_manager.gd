@@ -15,6 +15,13 @@ var default_bullet_pircing: int = 1
 
 var last_restart_time = 0
 
+var weapons: Dictionary = {
+    "ha_weapon" : HaWeapon.new(), 
+    "he_weapon" : HeWeapon.new(),
+    "hi_weapon" : HiWeapon.new(),
+    "ho_weapon" : HoWeapon.new(),
+}
+
 func _process(delta):
     check_exit()
 
