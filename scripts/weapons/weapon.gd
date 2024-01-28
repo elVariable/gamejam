@@ -12,8 +12,11 @@ var bullet_dmg = 50
 var bullet_pircing = 1
 
 var bullet_timer : Timer = null
+var resource = null
 
 var weapon_lvl : int = 1
+
+var weapon_name : String = "BaseWeapon"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,8 +71,11 @@ func fire_bullets():
 
 func _on_bullet_timer_timeout():
     fire_bullets()
-
     bullet_timer.start(base_spawn_time)
+
+func create_instance():
+    if resource:
+        return resource.instantiate()
 
 func get_scaled_dmg():
     return weapon_lvl * bullet_dmg
