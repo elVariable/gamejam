@@ -62,6 +62,7 @@ text = "Submit Score"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
+accept_gzip = false
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed_restart"]
 [connection signal="text_changed" from="Control/SubmitScore/UserName" to="." method="_on_user_name_text_changed"]
