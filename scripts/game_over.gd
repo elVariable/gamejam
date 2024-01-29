@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
     $Control/TextEdit.text = "You DIED. HAHA\nYour score: " + str(GameManager.score)
     $HTTPRequest.request_completed.connect(self._http_request_completed)
+    $HTTPRequest.set_tls_options(TLSOptions.client_unsafe())
     update_scoreboard()
 
 # Called when the HTTP request is completed.
@@ -13,8 +14,9 @@ func _http_request_completed(result, response_code, headers, body):
     var j = body.get_string_from_utf8()
     
     # this is how we solve bugs
+    var first = j.rfind("[")
     var last = j.rfind("]")
-    j = j.substr(0, last+1)
+    j = j.substr(first, last+1-first)
     
     json.parse(j)
     update_scoreboard_text(json.get_data())
@@ -22,7 +24,7 @@ func _http_request_completed(result, response_code, headers, body):
 func update_scoreboard():
     $Control/ScoreView.text = "[b][rainbow][font_size=22]Worldwide Highscore[/font_size][/rainbow][/b]\nLoading..."
     # Perform a GET request. The URL below returns JSON as of writing.
-    var error = $HTTPRequest.request("http://msg.elvariable.de/index.php?json")
+    var error = $HTTPRequest.request("https://msg.elvariable.de/index.php?json")
     if error != OK:
         push_error("An error occurred in the HTTP request.")
 
@@ -73,7 +75,7 @@ func _on_button_pressed_submit():
     var headers = ["Content-Type: application/x-www-form-urlencoded", "Content-Length: " + str(queryString.length())]
     # var result = httpClient.request(httpClient.METHOD_POST, "index.php", headers, queryString)
 
-    $HTTPRequest.request("http://msg.elvariable.de/index.php", headers, HTTPClient.METHOD_POST, queryString)
+    $HTTPRequest.request("http://msgs.elvariable.de/index.php", headers, HTTPClient.METHOD_POST, queryString)
     $Control/SubmitScore/Button.disabled = true
 
 
