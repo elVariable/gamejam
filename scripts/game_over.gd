@@ -72,10 +72,17 @@ func _on_button_pressed_submit():
         queryString += field + "=" + str(fields[field]) + "&"
     queryString = queryString.substr(0, queryString.length() - 1)
     
-    var headers = ["Content-Type: application/x-www-form-urlencoded", "Content-Length: " + str(queryString.length())]
+    var headers = ["Content-Type: application/x-www-form-urlencoded"]
     # var result = httpClient.request(httpClient.METHOD_POST, "index.php", headers, queryString)
 
-    $HTTPRequest.request("http://msgs.elvariable.de/index.php", headers, HTTPClient.METHOD_POST, queryString)
+    $HTTPRequest.request("https://msg.elvariable.de/index.php", headers, HTTPClient.METHOD_POST, queryString)
     $Control/SubmitScore/Button.disabled = true
 
 
+
+
+func _on_user_name_text_changed():
+    if "\n" in $Control/SubmitScore/UserName.text:
+        $Control/SubmitScore/UserName.text = $Control/SubmitScore/UserName.text.replace("\n", "")
+        if not $Control/SubmitScore/Button.disabled:
+            _on_button_pressed_submit()

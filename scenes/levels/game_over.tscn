@@ -64,4 +64,5 @@ text = "Submit Score"
 unique_name_in_owner = true
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed_restart"]
+[connection signal="text_changed" from="Control/SubmitScore/UserName" to="." method="_on_user_name_text_changed"]
 [connection signal="pressed" from="Control/SubmitScore/Button" to="." method="_on_button_pressed_submit"]
